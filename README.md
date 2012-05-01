@@ -13,4 +13,4 @@ found so far by adding detail.
 
 So far, we have a simple genetic algorithm.
 
-Copyright 2011-2012 James McDermott and Caitlin Muller
+Copyright 2011-2012 James McDermott and Caitlin Mueller

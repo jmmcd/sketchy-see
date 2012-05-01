@@ -13,6 +13,11 @@
 #
 # http://chandlerprall.github.com/Physijs/ (CoffeeScript Physics engine)
 #
+# http://coffeescriptcookbook.com/
+#
+# http://coffeescriptcookbook.com/chapters/math/generating-predictable-random-numbers
+#
+# http://arcturo.github.com/library/coffeescript/ (Little Book)
 
 
 
@@ -74,15 +79,16 @@ class GA
 crossover = (p0, p1) ->
     d0 = p0.genome
     d1 = p1.genome
-    x = randn(d0.length)
+    x = randn(d0.length) # crossover point
     c0 = new Individual(d0[...x].concat(d1[x...]))
     c1 = new Individual(d1[...x].concat(d0[x...]))
     return [c0, c1]
 
-# Flip a single bit. No mutation-probability or anything.
+# Flip a single bit. No mutation-probability or anything. Change the
+# passed-in individual: don't return anything.
 mutate = (p0) ->
     d0 = p0.genome
-    x = randn(d0.length)
+    x = randn(d0.length) # mutation locus
     if d0[x]
         d0[x] = 0
     else
@@ -111,6 +117,9 @@ fitness_fn = (ind) ->
     ind.genome.reduce (t, s) -> t + s
 best_possible_fitness = 8
 
+main = ->
+     ga = new GA(8, 6, 10)
+     ga.run()
+
 # Test
-ga = new GA(8, 6, 10)
-ga.run()
+main()
