@@ -11,6 +11,15 @@ to fill in at each stage. So there are two main actions: evolving, ie
 searching, in the current level of detail; and developing the designs
 found so far by adding detail.
 
-So far, we have a simple genetic algorithm.
+So far, we have a simple genetic algorithm and a tiny WebGL demo
+running on the same page. To build:
+
+$ cake build
+
+To see the demo:
+
+$ python -m SimpleHTTPServer
+
+Then visit localhost:8000/public.
 
 Copyright 2011-2012 James McDermott and Caitlin Mueller
