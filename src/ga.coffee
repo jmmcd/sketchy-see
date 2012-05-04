@@ -62,11 +62,16 @@ class GA
             # Quit early?
             if @best_fitness == best_possible_fitness
                 break
+        return @best_fitness
 
     # Print a message
     print_stats: (gen) ->
-        console.log("Gen #{gen}; best #{@best_fitness}")
-        console.log(@pop)
+        msg = "Gen #{gen}; best #{@best_fitness}"
+        console.log(msg)
+        # document.write(msg)
+        msg = @pop
+        console.log(msg)
+        # document.write(msg)
 
     # Call the fitness function on the whole population. Can put stats
     # in here too.
@@ -118,8 +123,12 @@ fitness_fn = (ind) ->
 best_possible_fitness = 8
 
 main = ->
-     ga = new GA(8, 6, 10)
-     ga.run()
+    ga = new GA(8, 6, 10)
+    b = ga.run()
+    return b
+
+root = exports ? this
+root.main = main
 
 # Test
-main()
+# main()
